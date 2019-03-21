@@ -1,21 +1,35 @@
 const express = require('express')
-
-require('./db/mongoose.js')
+const User = require('./models/user')
+const Layer = require('./models/layer')
+//require('./db/mongoose.js')
 
 const app = express()
 const port = process.env.PORT
 
 console.log(port)
 
-
-app.get("/", (req, res) => {
-  try{
-    res.status(200).send("app is up on port "+ port)
-  } catch(e) {
-      console.log("nope")
-  }
+const myUser = new User({
+  name:"Jason",
+  email:"Jason@me.com",
+  password:"ThisIsMyPW"
 })
 
-app.listen(port, () => {
-  console.log("timeline app: server is up on port:", port)
+const myLayer = new Layer({
+  title: "US History",
+  start: "3/14/1994"
 })
+
+console.log(myUser)
+console.log(myLayer)
+
+// app.get("/", (req, res) => {
+//   try{
+//     res.status(200).send("app is up on port "+ port)
+//   } catch(e) {
+//       console.log("nope")
+//   }
+// })
+//
+// app.listen(port, () => {
+//   console.log("timeline app: server is up on port:", port)
+// })
