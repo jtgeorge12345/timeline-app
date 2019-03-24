@@ -18,8 +18,11 @@ const layerSchema = new mongoose.Schema({
   },
   owner: {
     type: mongoose.ObjectId,
-    //required: true,
+    required: true,
     ref: "User"
+  },
+  description: {
+    type: String
   }
 }, {
   timestamps: true
